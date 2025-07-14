@@ -13,6 +13,7 @@
     <p>당신의 이름은?</p>
     <input id="username" type="text" placeholder="이름 입력" />
     <button onclick="startGame()">게임 시작</button>
+    <button onclick="resetGame()" style="margin-top: 10px; background: #eee;">게임 초기화</button>
   </div>
 
   <div id="story" style="display: none;">
@@ -20,17 +21,36 @@
     <button onclick="nextStory()">다음으로</button>
   </div>
 
+  <!-- 이동 화면 -->
+  <div id="move-container" style="display: none;">
+    <h2 id="move-text"></h2>
+    <img id="move-image" src="" style="max-width: 100%; border-radius: 12px;" />
+    <button onclick="nextPuzzle()">도착했어</button>
+  </div>
+
+  <!-- 문제 화면 -->
+  <div id="puzzle-container" style="display: none;">
+    <h2 id="question">문제</h2>
+    <input id="user-answer" type="text" placeholder="정답 입력" />
+    <button onclick="checkAnswer()">제출</button>
+    <button onclick="showHint()">힌트</button>
+    <p id="hint-box"></p>
+  </div>
+
+<!-- 
   <div id="puzzle-container" style="display: none;">
     <h2 id="question">문제 로딩 중...</h2>
     <input id="user-answer" type="text" placeholder="정답 입력" />
     <button onclick="checkAnswer()">제출</button>
     <button id="hint-button" onclick="showHint()">힌트 보기</button>
     <p id="hint-box"></p>
-  </div>
+  </div> -->
 
+  
   <div id="ending" style="display: none;">
     <h2>🎉 탈출 성공!</h2>
     <div id="ending-text"></div>
+    <button onclick="resetGame()" style="margin-top: 10px; background: #eee;">게임 초기화</button>
   </div>
 
   <script src="js/main.js"></script>
