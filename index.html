@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>방탈출 게임</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <h2>방탈출 게임</h2>
+  <p>이름: <input id="username" /></p>
+  <button onclick="startGame()">게임 시작</button>
+  <div id="game" style="display: none;">
+    <p>힌트를 쓰려면 <button onclick="useHint()">힌트 사용</button></p>
+    <p>정답: <input id="answer" /></p>
+    <button onclick="endGame()">탈출 시도</button>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
