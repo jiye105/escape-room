@@ -2,18 +2,38 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>방탈출 게임</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-  <h2>방탈출 게임</h2>
-  <p>이름: <input id="username" /></p>
-  <button onclick="startGame()">게임 시작</button>
-  <div id="game" style="display: none;">
-    <p>힌트를 쓰려면 <button onclick="useHint()">힌트 사용</button></p>
-    <p>정답: <input id="answer" /></p>
-    <button onclick="endGame()">탈출 시도</button>
+  <div id="intro">
+    <h1>🗝️ 방탈출 게임</h1>
+    <p>당신의 이름은?</p>
+    <input id="username" type="text" placeholder="이름 입력" />
+    <button onclick="startGame()">게임 시작</button>
   </div>
-  <script src="game.js"></script>
+
+  <div id="story" style="display: none;">
+    <p id="story-text"></p>
+    <button onclick="nextStory()">다음으로</button>
+  </div>
+
+  <div id="puzzle-container" style="display: none;">
+    <h2 id="question">문제 로딩 중...</h2>
+    <input id="user-answer" type="text" placeholder="정답 입력" />
+    <button onclick="checkAnswer()">제출</button>
+    <button id="hint-button" onclick="showHint()">힌트 보기</button>
+    <p id="hint-box"></p>
+  </div>
+
+  <div id="ending" style="display: none;">
+    <h2>🎉 탈출 성공!</h2>
+    <div id="ending-text"></div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/puzzle.js"></script>
 </body>
 </html>
