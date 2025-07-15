@@ -18,10 +18,11 @@ body {
 #move-container,
 #puzzle-container,
 #ending {
-  padding: 40px 20px;
+  padding: 40px 30px;
   min-height: 500px;
   align-items: center;
   justify-content: center;
+  word-wrap: break-word;
 }
 
 /* 제목과 버튼은 도현체 */
@@ -75,7 +76,7 @@ button:hover {
 
 /* 장소 이미지 */
 #move-image {
-  max-width: 90%;
+  width: 90%;
   border-radius: 16px;
   margin-top: 20px;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
@@ -96,6 +97,7 @@ textarea {
     position: fixed;
     top: 200px;
     left: 50%;
+    width: 60%;
     transform: translateX(-50%);
     background-color: white;
     border: 2px solid #a0d8ff;
