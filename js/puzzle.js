@@ -1,36 +1,36 @@
 const puzzles = [
     {
-      move: '이곳으로 이동하세요' ,
+      move: `내 자리 어디에 떨어져있는건 아니겠지?? ` ,
       moveImage: `img/place1.jpg`,
-      question: '문제 1: 문을 여는 숫자는?',
+      question: '자리문제 1234?',
       answer: '1234',
       hints: ['네 자리 숫자입니다.', '1로 시작합니다.']
     },
     {
-      move: '이곳으로 이동하세요' ,
+      move: `설마 어제 그룹장님 자리에서 뭐 말씀드리다가 두고왔나?` ,
       moveImage: `img/place2.jpg`,
-      question: '문제 2: 탈출구 방향은?',
+      question: '그룹장님문제 동쪽?',
       answer: '동쪽',
       hints: ['해가 뜨는 쪽입니다.', '왼쪽이 아닙니다.']
     },
     {
-      move: '이곳으로 이동하세요' ,
+      move: '어제 새로 생긴 시작실에 시료도 옮겨뒀는데.. 설마 거기에?' ,
       moveImage: `img/place3.jpg`,
-      question: '문제 3: 방 안에 있는 것은?',
+      question: '시작실 열쇠?',
       answer: '열쇠',
       hints: ['잠긴 것을 여는 도구입니다.', '쇠로 만들어졌습니다.']
     },
     {
-      move: '이곳으로 이동하세요' ,
+      move: '아참, 어제 휴게실에서 책도 한권 빌려갔었어' ,
       moveImage: `img/place2.jpg`,
-      question: '문제 4: 주인공의 이름은?',
+      question: '휴게실 홍길동?',
       answer: '홍길동',
       hints: ['고전 소설 속 인물입니다.', '이름에 "동"이 들어갑니다.']
     },
     {
-      move: '이곳으로 이동하세요' ,
+      move: '프린터기에서 복사도 한번 했었는데...' ,
       moveImage: `img/place2.jpg`,
-      question: '문제 5: 게임의 제목은?',
+      question: '프린터기 방탈출?',
       answer: '방탈출',
       hints: ['방에서 빠져나가는 게임입니다.', '네 글자입니다.']
     }
@@ -58,17 +58,23 @@ const puzzles = [
     const userInput = document.getElementById('user-answer').value.trim();
     const puzzle = puzzles[shuffled[currentPuzzleIndex]];
     if (userInput === puzzle.answer) {
-      alert('정답입니다!');
-      nextMove();
-    } else {
-      alert('틀렸습니다. 다시 시도하세요.');
-    }
+        showMessage("🎉 정답입니다! 🎉", true, () => {
+            nextMove(); // 2초 후 실행
+          });
+
+      } else {
+        showMessage(`❌ 틀렸습니다 ❌\n다시 시도해보세요.`, false);
+      }
   }
   
   function showHint() {
     const puzzle = puzzles[shuffled[currentPuzzleIndex]];
+    const hintBox = document.getElementById('hint-box');
     if (hintShown < puzzle.hints.length) {
-      document.getElementById('hint-box').textContent = puzzle.hints[hintShown];
+      const newHint = document.createElement('p');
+      newHint.textContent = `힌트 ${hintShown + 1}: ${puzzle.hints[hintShown]}`;
+      hintBox.appendChild(newHint);
+      
       hintShown++;
       totalHintCount++;
       saveGameState(); // ✅ 힌트 사용 후 저장
