@@ -12,6 +12,18 @@ body {
   align-items: center;
 }
 
+.center-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;     /* ✅ 세로 가운데 */
+  align-items: center;         /* ✅ 가로 가운데 */
+  height: 100vh;               /* ✅ 화면 전체 높이 */
+  text-align: center;
+  margin: 50px 20px;
+  box-sizing: border-box;
+}
+
 /* 공통 섹션 여백 */
 #intro,
 #story,
@@ -23,14 +35,45 @@ body {
   align-items: center;
   justify-content: center;
   word-wrap: break-word;
+  font-size: 24px;
 }
 
 /* 제목과 버튼은 도현체 */
 h1, h2, button {
   font-family: 'Do Hyeon', sans-serif;
-  font-size: 1.8em;
+  font-size: 36px;
   color: #444;
   margin-bottom: 1em;
+  align-items: center;
+}
+
+.fixed-button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 300px;                      /* ✅ 화면 세로 80%에 고정 */
+  left: 50%;
+  align-self: center;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 2px solid #84cfff;
+  border-radius: 24px;
+  padding: 12px 24px;
+  font-family: 'Do Hyeon', sans-serif;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.fixed-button:hover {
+  background-color: #84cfff;
+  color: #fff;
+}
+  
+.fixed-button-group {
+  position: relative;
+  top: 300px;
+  width: 100%;
   align-items: center;
 }
 
@@ -38,7 +81,7 @@ h1, h2, button {
 input[type="text"] {
   width: 90%;
   padding: 12px;
-  font-size: 1.1em;
+  font-size: 22px;
   margin: 10px auto 20px auto;
   border: 2px solid #a0d8ff;
   border-radius: 12px;
@@ -53,7 +96,7 @@ button {
   min-width: 80px;
   border-radius: 24px;
   padding: 10px 20px;
-  font-size: 1em;
+  font-size: 20px;
   margin: 10px 5px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -65,15 +108,6 @@ button:hover {
   color: white;
 }
 
-/* 힌트 텍스트는 나눔펜 */
-#hint-box {
-  font-family: 'Nanum Pen Script', cursive;
-  font-size: 1.2em;
-  font-style: normal;
-  color: #777;
-  margin-top: 10px;
-}
-
 /* 장소 이미지 */
 #move-image {
   width: 90%;
@@ -82,10 +116,14 @@ button:hover {
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
 }
 
+#question {
+  margin-bottom: 100px;
+}
+
 /* 복사용 텍스트 */
 textarea {
   width: 90%;
-  font-size: 0.9em;
+  font-size: 15px;
   padding: 10px;
   margin-top: 12px;
   border-radius: 10px;
@@ -106,7 +144,7 @@ textarea {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-family: 'Do Hyeon', sans-serif;
     color: #333;
-    font-size: 1.2em;
+    font-size: 20px;
     z-index: 9999;
     transition: opacity 0.3s ease;
     white-space: pre-line;
@@ -131,7 +169,7 @@ textarea {
 
 #hint-box {
 font-family: 'Nanum Pen Script', cursive;
-font-size: 1.1em;
+font-size: 24px;
 color: #555;
 margin-top: 15px;
 text-align: center;
@@ -154,7 +192,7 @@ margin: 6px 0;
     border: 2px solid #84cfff;
     border-radius: 24px;
     padding: 12px 24px;
-    font-size: 1em;
+    font-size: 18px;
     font-family: 'Do Hyeon', sans-serif;
     cursor: pointer;
     transition: background-color 0.2s ease;
@@ -167,7 +205,7 @@ margin: 6px 0;
   }
   
   #copy-status {
-    font-size: 0.9em;
+    font-size: 18px;
     font-family: 'Gowun Dodum', sans-serif;
   }
   
