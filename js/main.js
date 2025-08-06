@@ -11,7 +11,7 @@ function startGame() {
   const nameInput = document.getElementById('username').value.trim();
   const code = document.getElementById("code-input").value.trim();
   
-  VALID_CODE = "GCS2508"
+  VALID_CODE = "GCS250813"
   if (!nameInput) return alert('이름을 입력하세요.');
   if (code !== VALID_CODE) {
     alert("올바른 입장 코드를 입력해주세요.");
@@ -35,10 +35,7 @@ function showStory() {
         신입사원 ${playerName}프로님이세요? 만나서 반가워요!`,
         `첫 출근이라 많이 떨리시나봐요 ㅎㅎ
         괜찮습니다, 제가 잘 챙겨드릴게요!`,
-        `어쩜 첫 출근날이 GWP에요? 
-        아 GWP가 뭔지 잘 모르겠구나!`,
-        `GWP는 Great Work Place라는 뜻인데요 
-        결국 사람들끼리 친해져서 으쌰으쌰 해보는 날이에요.`,
+        `어쩜 첫 출근날이 그룹 회식 날이에요?`,
         `마침 오늘 나눠드릴 선물이 많은데, 
         ${playerName}프로님이랑 같이 나눠주면 되겠네요!`,
         `이김에 안면도 트면서~ 
@@ -199,6 +196,35 @@ function saveGameState() {
       }
     }, 1000);
   }
+
+  // decoding
+  document.getElementById("decoder").addEventListener("input", function () {
+    const input = this.value;
+    const output = document.getElementById("decoded-result");
+  
+    try {
+      // URL 또는 query string에서 ? 이하만 추출
+      const query = input.includes("?") ? input.split("?")[1] : input;
+      const params = new URLSearchParams(query);
+  
+      const name = params.get("name");
+      const time = params.get("time");
+      const hint = params.get("hint");
+  
+      const decodedName = decodeURIComponent(name || "");
+      const decodedTime = atob(decodeURIComponent(time || ""));
+      const decodedHint = atob(decodeURIComponent(hint || ""));
+  
+      output.innerHTML = `
+        <p><strong>이름:</strong> ${decodedName}</p>
+        <p><strong>소요 시간:</strong> ${decodedTime}초</p>
+        <p><strong>힌트 사용:</strong> ${decodedHint}회</p>
+      `;
+    } catch (e) {
+      output.innerHTML = `<p style="color:gray">유효한 result.html URL을 입력하세요</p>`;
+    }
+  });
+  
   
   
   
