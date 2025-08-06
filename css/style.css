@@ -22,6 +22,7 @@ body {
   text-align: center;
   margin: 50px 20px;
   box-sizing: border-box;
+  max-height: 1000px;
 }
 
 /* 공통 섹션 여백 */
@@ -41,17 +42,17 @@ body {
 /* 제목과 버튼은 도현체 */
 h1, h2, button {
   font-family: 'Do Hyeon', sans-serif;
-  font-size: 36px;
+  font-size: 30px;
   color: #444;
   margin-bottom: 1em;
   align-items: center;
 }
 
 .fixed-button {
-  position: relative;
+  position: fixed;
   display: flex;
   flex-direction: column;
-  top: 300px;                      /* ✅ 화면 세로 80%에 고정 */
+  top: 600px;                      /* ✅ 화면 세로 80%에 고정 */
   left: 50%;
   align-self: center;
   transform: translate(-50%, -50%);
@@ -72,7 +73,7 @@ h1, h2, button {
   
 .fixed-button-group {
   position: relative;
-  top: 300px;
+  bottom: 10px;
   width: 100%;
   align-items: center;
 }
@@ -116,8 +117,15 @@ button:hover {
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
 }
 
+#clue-image {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  border-radius: 12px;
+}
+
 #question {
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 /* 복사용 텍스트 */
@@ -140,7 +148,8 @@ textarea {
     background-color: white;
     border: 2px solid #a0d8ff;
     border-radius: 16px;
-    padding: 12px 20px;
+    align-items: center;
+    padding: 30px 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-family: 'Do Hyeon', sans-serif;
     color: #333;
