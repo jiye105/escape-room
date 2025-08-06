@@ -3,18 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>방탈출 게임</title>
+  <title>품질팀 사무실 탈출하기</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
   <div class="center-wrapper">
+    <!-- 관리자화면 -->
+    <div id="manager-page" style="display: none;">
+      <button onclick="resetGame()" style="margin-top: 10px; background: #eee;">게임 초기화</button>
+      <input id="decoder" type="text" placeholder="decode url" style="width: 90%; padding: 10px; margin: 10px auto; display: block;" />
+      <div id="decoded-result" style="text-align: center; margin-top: 10px;"></div>
+    </div>
+
     <div id="intro">
       <h1>오늘은 사무실 첫 출근날!</h1>
       <p>당신의 이름은?</p>
       <input id="username" type="text" placeholder="이름 입력" />
       <input type="text" id="code-input" placeholder="입장 코드를 입력하세요" />
-      <button class="fixed-button" onclick="startGame()">게임 시작</button>
+      <button onclick="startGame()">게임 시작</button>
     </div>
   
     <!-- 인트로 스토리화면 -->
@@ -27,12 +34,14 @@
     <div id="move-container" style="display: none;">
       <div id="move-text"></div>
       <img id="move-image" src="" style="max-width: 100%; border-radius: 12px;" />
-      <button class="fixed-button" onclick="nextPuzzle()">도착했어</button>
+      <button onclick="nextPuzzle()">도착했어</button>
     </div>
   
     <!-- 문제 화면 -->
     <div id="puzzle-container" style="display: none;">
       <div id="question">문제</div>
+      <img id="clue-image" src="" 
+           style="max-width: 100%; margin: 10px auto; border-radius: 12px; display: block;" />
       <input id="user-answer" type="text" placeholder="정답 입력" />
       <div class="fixed-button-group" id="buttons">
         <button onclick="checkAnswer()">제출</button>
@@ -55,11 +64,10 @@
         <p id="copy-status" style="display:none; color: #4caf50; margin-top: 10px;">복사되었습니다!</p>
       </div>
     </div>
-    
-    <script src="js/main.js"></script>
-    <script src="js/puzzle.js"></script>
+  
   </div>
-  <button onclick="resetGame()" style="margin-top: 10px; background: #eee;">게임 초기화</button>
 
+  <script src="js/main.js"></script>
+  <script src="js/puzzle.js"></script>
 </body>
 </html>
