@@ -20,23 +20,26 @@ body {
   align-items: center;         /* ✅ 가로 가운데 */
   height: 100vh;               /* ✅ 화면 전체 높이 */
   text-align: center;
-  margin: 50px 20px;
+  margin: 30px 10px;
   box-sizing: border-box;
   max-height: 1000px;
 }
 
 /* 공통 섹션 여백 */
 #intro,
-#story,
 #move-container,
 #puzzle-container,
 #ending {
-  padding: 40px 30px;
+  padding: 20px 10px;
   min-height: 500px;
   align-items: center;
   justify-content: center;
   word-wrap: break-word;
   font-size: 24px;
+}
+
+#story {
+  font-size: 20px;
 }
 
 /* 제목과 버튼은 도현체 */
