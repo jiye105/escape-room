@@ -3,7 +3,7 @@ const puzzles = [
       move: `내 자리 어디에 떨어져있는건 아니겠지?? ` ,
       moveImage: `https://m.tsfurniture.co.kr/web/product/big/202407/5d4bf51673821a13732320b936a0c98a.jpg`,
       question: '모자이크 상품화품질그룹 DOCS에 가보자.\n그룹행사 > 사무실탈출_2508 폴더를 열어보니... \n파일이 많다.',
-      clueImage: 'C:/Users/jiye105.shin/Desktop/escape_room/escape-room/clue.JPG',
+      // clueImage: 'C:/Users/jiye105.shin/Desktop/escape_room/escape-room/clue.JPG',
       answer: '개발품질점검회의메모',
       hints: ['파일 확장자가 다양하네요.', '모든 파일이 가리키는 하나의 파일이 있습니다.']
     },
