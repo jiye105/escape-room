@@ -10,9 +10,13 @@ let storyIndex = 0;
 function startGame() {
   const nameInput = document.getElementById('username').value.trim();
   const code = document.getElementById("code-input").value.trim();
+  const managerPage = document.getElementById("manager-page");
   
   VALID_CODE = "GCS250813"
   if (!nameInput) return alert('이름을 입력하세요.');
+  if (code === "관리자") {
+    managerPage.style.display = 'block';
+  }
   if (code !== VALID_CODE) {
     alert("올바른 입장 코드를 입력해주세요.");
     return;
