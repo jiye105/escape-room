@@ -18,7 +18,7 @@ const puzzles = [
     {
       move: '어제 새로 생긴 시작실에 \n시료도 옮겨뒀는데.. 설마 거기에?' ,
       moveImage: `https://www.hyundai.co.kr/image/upload/asset_library/MDA00000000000054162/de88a9de0c014d6f902cd9b776201618.jpg`,
-      question: '시작실 책상으로 가보자',
+      question: '시작실로 가보자',
       // clueImage: "",
       answer: '171212',
       hints: ['영어를 숫자로 바꿔보자.', 'J=10']
